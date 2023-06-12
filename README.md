@@ -1,6 +1,4 @@
-# enigma
-
-> A GitHub App built with [Probot](https://github.com/probot/probot) that A Probot app
+# Enigma
 
 ## Setup
 
@@ -26,7 +24,7 @@ docker run -e APP_ID=<app-id> -e PRIVATE_KEY=<pem-value> enigma
 
 If you have suggestions for how enigma could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
 
-For more, check out the [Contributing Guide](CONTRIBUTING.md).
+For more, check out the [Contributing Guide](./docs/CONTRIBUTING.md).
 
 ## License
 
