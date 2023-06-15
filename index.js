@@ -1,4 +1,6 @@
 const github=require('./github/index');
+const compile=require('./compiler/compile');
+
 
 // check status if added or not
 // check additions --Done
@@ -9,7 +11,7 @@ const github=require('./github/index');
 module.exports = (app) => {
   // Your code here
   app.log.info("Yay, the app was loaded!");
-
+  
   app.on(
     ["pull_request.opened", "pull_request.synchronize", "pull_request.edited"],
     async (context) => {
@@ -26,7 +28,8 @@ module.exports = (app) => {
       }
 
       const code=await github(context);
-      console.log(code);
+      // console.log(code);
+      // await compile(code);
     }
   );
 };

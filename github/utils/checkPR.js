@@ -1,3 +1,15 @@
+const findLanguage=require('./languages');
+
+function getId(name){
+  findLanguage.forEach(language => {
+    if(language.name===name){
+      console.log(language.id);
+      return language.id;
+    }
+  });
+  return "Null";
+}
+
 module.exports = {
   checkFiles: async (context) => {
     const { additions, changed_files } = context.payload.pull_request;
@@ -18,9 +30,15 @@ module.exports = {
     let sampleOutput;
 
     if (matches) {
-      language = matches[1];
+      language ="Bash (5.0.0)";
       sampleInput = matches[2];
       sampleOutput = matches[3];
+      
+      
+      const id=getId(language);
+      
+
+      console.log(languageObject)
       console.log("Language:", language);
       console.log("Sample Input:", sampleInput);
       console.log("Sample Output:", sampleOutput);
