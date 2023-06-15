@@ -1,6 +1,6 @@
 const diff = require("diff");
 
-module.exports=async()=>{
+module.exports=async(context)=>{
     const { number } = context.payload.pull_request;
     const {
         owner: { login: owner },
@@ -16,13 +16,13 @@ module.exports=async()=>{
           per_page: 100,
         }
       );
-    console.log(data);
-    console.log(data[0].patch);
+    if(data[0].status!="added"){
+      return "Null";
+    }
 
     const patch = data[0].patch;
     const parsedPatch = diff.parsePatch(patch);
-    console.log(parsedPatch);
     const updatedCode = diff.applyPatch(``, parsedPatch);
 
-    console.log(updatedCode);
+    return updatedCode;
 }

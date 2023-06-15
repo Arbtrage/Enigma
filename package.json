@@ -16,6 +16,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "diff": "^5.1.0",
     "probot": "^12.2.4"
   },

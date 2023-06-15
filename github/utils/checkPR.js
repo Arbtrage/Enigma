@@ -5,8 +5,9 @@ module.exports = {
       console.log(
         "There were no additions or number of changed files are greater than 1, Bot will not run"
       );
-      return;
+      return false;
     }
+    return true;
   },
   checkBody: (body) => {
     const regex =

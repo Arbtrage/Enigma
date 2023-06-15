@@ -25,7 +25,8 @@ module.exports = (app) => {
         return;
       }
 
-      github(context);
+      const code=await github(context);
+      console.log(code);
     }
   );
 };
