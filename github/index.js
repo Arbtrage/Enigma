@@ -13,7 +13,6 @@ module.exports=async(context)=>{
 
     const {language,sampleInput,sampleOutput}=checkBody(context.payload.pull_request.body);
     if(!language || !sampleInput || !sampleOutput){
-      comment(text['Wrong Expression'],context);
       return;
     }
     
