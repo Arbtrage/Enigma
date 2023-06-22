@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-module.exports = async (code) => {
+module.exports = async (data) => {
   const options = {
     method: "POST",
     url: "https://judge0-ce.p.rapidapi.com/submissions",
@@ -12,19 +12,30 @@ module.exports = async (code) => {
     headers: {
       "content-type": "application/json",
       "Content-Type": "application/json",
-      "X-RapidAPI-Key":process.env.RAPIDAPI_KEY,
+      "X-RapidAPI-Key": process.env.RAPIDAPI_KEY,
       "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
     },
     data: {
-      language_id: 53,
-      source_code:code,
+      language_id: data.id,
+      source_code: data.code,
+      stdin: data.input,
+      stdout: data.output,
     },
   };
 
   try {
     const response = await axios.request(options);
-    console.log(response.data);
+    const {stdout,stderr,status}=response.data;
+    return {
+      status:200,
+      Output:stdout,
+      Error:stderr,
+      Message:status.description
+    };
   } catch (error) {
-    console.error(error);
+    return {
+      status:error.status,
+      Message:error.message
+    };
   }
 };

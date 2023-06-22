@@ -21,9 +21,9 @@ module.exports=async(context)=>{
         }
       );
 
-    if(data[0].status!="added"){
-      return "Null";
-    }
+    // if(data[0].status!="added"){
+    //   return "Null";
+    // }
 
     const patch = data[0].patch;
     const parsedPatch = diff.parsePatch(patch);

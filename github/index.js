@@ -1,27 +1,37 @@
-const comment=require('./utils/languages');
-const {checkBody, checkFiles}=require('./utils/checkPR');
-const getDiff=require('./utils/getDiff');
-const text=require('./text');
 
-module.exports=async(context)=>{
+const { checkBody} = require("./utils/checkPR");
+const getDiff = require("./utils/getDiff");
+
+module.exports = async (context) => {
   try {
+    //Check for more than 1 changed file or file creation
+    const { additions, changed_files } = context.payload.pull_request;
+    if (additions == 0 || changed_files > 1) {
+      throw new Error("Large File");
+    }
+    //Check for proper PR body
+    const response = checkBody(context.payload.pull_request.body);
+    if (response.status == 400) {
+      throw new Error(response.message);
+    }
+    //Fetch the codefrom the PR's Diff
+    const code = await getDiff(context);
 
-    const res=await checkFiles(context);
-    if(!res){
-      return ;
+    return {
+      status:200,
+      message:"Success",
+      code:code,
+      id:response.id,
+      input:response.input,
+      output:response.output
     }
 
-    const {language,sampleInput,sampleOutput}=checkBody(context.payload.pull_request.body);
-    if(!language || !sampleInput || !sampleOutput){
-      return;
+  } catch (error){
+    console.log(error.message)
+    return {
+      status:400,
+      message:error.message,
+      code:null
     }
-    
-    const code =await getDiff(context);
-    
-    return code;
-  } catch (error) {
-    
   }
-
- 
-}
+};

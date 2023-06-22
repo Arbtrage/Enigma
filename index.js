@@ -1,6 +1,6 @@
 const github=require('./github/index');
 const compile=require('./compiler/compile');
-
+const comment=require('./comment')
 
 module.exports = (app) => {
   // Your code here
@@ -19,10 +19,33 @@ module.exports = (app) => {
         app.log.info("Execute or Run command is not given, so Bot will not run");
         return;
       }
+      try {
+        const res=await github(context);
+        if(res.status==400){
+          throw new Error(res.message);
+        }
+        console.log(res.code);
 
-      const code=await github(context);
-      // console.log(code);
-      // await compile(code);
+        const options={
+          code:res.code,
+          id:res.id,
+          input:res.input=='null'?null:res.input,
+          output:res.output=='null'?null:res.output
+        }
+        console.log(options)
+        const output=await compile(options);
+        if(output.status==400){
+          throw new Error(output.message);
+        }
+        const body={
+          output:output.Output,
+          message:"Success"
+        }
+        await comment(context,body);
+        
+      } catch (error) {
+        await comment(context,error.message);
+      }
     }
   );
 };

@@ -41,7 +41,7 @@ module.exports =[
   },
   {
     id: 54,
-    name: "C++ (GCC 9.2.0)",
+    name: "C++",
   },
   {
     id: 86,
