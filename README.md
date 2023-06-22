@@ -4,6 +4,8 @@
 
 "Supercharge your code review process with our GitHub app. Automate code execution in pull requests, ensuring faster feedback and improved collaboration. Seamlessly integrate with GitHub's API and leverage Judge0 API for effortless code execution. Detect and resolve issues early on with automated testing and instant output comments. Boost productivity and code correctness with advanced features and streamlined workflows. Elevate the quality of your code contributions today."
 
+[Demo Link](https://vimeo.com/838746166?share=copy)
+
 ## Getting Started
 
 To get started with this project, follow the steps below:
@@ -32,6 +34,22 @@ npm install
 npm start
 ```
 ###  Setup the .env file according to the instructions provided by probot
+
+## Screenshots
+- When there is no 'Run' in the PR head
+  <img width="780" alt="image" src="https://github.com/Arbtrage/Enigma/assets/100552235/2c9ecf09-4750-4275-a83d-fc0b64af72f4">
+- When the PR body is not specified
+  <img width="780" alt="image" src="https://github.com/Arbtrage/Enigma/assets/100552235/5961ed16-b084-4bea-977c-d29bcf3e54e6">
+- When language is not found
+  <img width="780" alt="image" src="https://github.com/Arbtrage/Enigma/assets/100552235/53d74f1e-bb5c-41b4-bc3d-255ee2489d1e">
+  
+- On successful execution
+  <br>
+  <img width="800" align="center" alt="image" src="https://github.com/Arbtrage/Enigma/assets/100552235/f90480b6-bbfd-42d0-ac88-a8e9462695a5">
+
+
+### Sample PR : https://github.com/Arbtrage/Bot_test/pull/3
+
 
 
 ## Features
