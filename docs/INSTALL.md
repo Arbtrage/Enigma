@@ -66,9 +66,8 @@ This guide will walk you through the steps to set up and run the Enigma GitHub B
    - Paste the copied Rapid API key in the .env file of your local Enigma repository.
    - Restart the server to reflect the changes to the .env file:
 
-     bash
+     ```bash
      npm start
-     ```
 
 7. **Set up smee.io for Webhook Events**
    - Visit smee.io to listen to webhook payload events from GitHub.
