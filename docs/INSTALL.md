@@ -17,7 +17,7 @@ This guide will walk you through the steps to set up and run the Enigma GitHub B
    - Clone the forked repository to your local machine:
 
      ```bash
-     git clone [https://github.com/your-username/Enigma.git](https://github.com/your-username/Enigma.git)
+     git clone https://github.com/your-username/Enigma.git
      ```
 
    - Navigate to the cloned repository folder:
