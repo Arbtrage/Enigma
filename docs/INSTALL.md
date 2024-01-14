@@ -31,8 +31,7 @@ This guide will walk you through the steps to set up and run the Enigma GitHub B
 
      ```bash
      npm install
-     npm start
-     
+     npm start 
 
 3. **Configure GitHub App**
    - Visit http://localhost:3000
@@ -43,9 +42,12 @@ This guide will walk you through the steps to set up and run the Enigma GitHub B
      - Go to the app settings and locate the .env file containing the GitHub app ID, client ID, private key, webhook proxy URL, etc.
    - In the GitHub app settings, navigate to "Permissions & events" and "Repository permissions."
      - Update permissions for issues and pull requests to read and write.
-       ![ca4e1e00-a466-45f0-b338-1c033ed70a1f](https://github.com/Rani1303/Enigma/assets/103280525/28f14389-7355-4429-8f94-df580eb14dcb)
+
+       ![ca4e1e00-a466-45f0-b338-1c033ed70a1f](https://github.com/Rani1303/Enigma/assets/103280525/a1dc5701-2023-486e-87cb-df0294300807)
+
 
      - Subscribe to events like issues, pull request, label, issue comment, pull request review comment, and thread.
+       
        ![da5750c0-3ec8-43b7-924f-f3dbf41a888a](https://github.com/Rani1303/Enigma/assets/103280525/bf23ede6-7b69-4c6c-a008-0e439933d8c7)
 
      - Save the changes.
